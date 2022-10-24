@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Brand AI Monitor</h1>
+    <p class="lead">Brand AI Monitor is a service that allows using Artificial Intelligence (thanks to <a href="https://www.expert.ai/" target="_blank">Expert.ai</a>) to analyze the comments of your customers in Twitter (with Azure Logic Apps).</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Monitoring</h2>
+        <p>
+            Review the tweets that talk about your brand, using the Azure Logic App listening to the comments and then with Expert.AI detecting the sentiment of the main topics of each one, so you will know what people are saying about your company and products/services.
+        </p>
+        <p>@Html.ActionLink("Check messages", "ListMessages", "Home", null, new { @class = "btn btn-primary btn-lg px-4 me-sm-3" })</p>
+    </div>
+    <div class="col-md-6">
+        <h2>Are you a developer?</h2>
+        <p>You can add AI to your applications with Expert.AI.</p>
+
+        <p> <a href="https://expert.ai/" target="_blank" class="btn btn-success btn-lg px-4">ExpertAI</a></p>
+    </div>
+</div>

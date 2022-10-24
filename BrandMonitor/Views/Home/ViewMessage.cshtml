@@ -1,0 +1,43 @@
+﻿@model BrandMonitor.Models.ViewMessageModel
+@{
+    ViewBag.Title = "Message";
+}
+
+<h2>Message details</h2>
+
+<div class="row">
+    <div class="col-md-7">
+
+        <h3>Message</h3>
+        <table>
+            <tr>
+                <td>Text</td>
+                <th><b>@Model.Message.Text</b></th>
+            </tr>
+            <tr>
+                <td>Sentiment</td>
+                <th><b>@(Model.Message.Sentiment.GetValueOrDefault() > 0? "Positive": (Model.Message.Sentiment.GetValueOrDefault() < 0? "Negative":"No data"))</b> (@Model.Message.Sentiment.GetValueOrDefault())</th>
+            </tr>
+            <tr>
+                <td>Created At</td>
+                <th><b>@Model.Message.CreatedAt</b></th>
+            </tr>
+            <tr>
+                <td>User</td>
+                <th><b><a href="https://twitter.com/@(Model.Message.User)/status/@(Model.Message.Url)" target="_blank">@Model.Message.User</a></b></th>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <h3>Topics</h3>
+        <table>
+        @foreach(var topic in Model.Topics)
+        {
+            <tr>
+                <th>@Html.ActionLink(topic.Label, "ListMessages", "Home", new { topic = topic.Label }, null)</th>
+            </tr>
+        }
+        </table>
+    </div>
+
+</div>
